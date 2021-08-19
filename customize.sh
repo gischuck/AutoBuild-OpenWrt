@@ -22,7 +22,7 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-adbyby-p
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/adbyby package/new/adbyby
 
 # AdGuard Home
-cp -rf ../luci-app-adguardhome package/new/luci-app-adguardhome
+#cp -rf ../luci-app-adguardhome package/new/luci-app-adguardhome
 
 # DDNS
 svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/net/ddns-scripts_aliyun package/new/ddns-scripts_aliyun
@@ -33,25 +33,25 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-filetran
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-lib-fs package/new/luci-lib-fs
 
 # frp
-rm -rf ./feeds/luci/applications/luci-app-frps
-rm -rf ./feeds/luci/applications/luci-app-frpc
-rm -rf ./feeds/packages/net/frp
-rm -rf ./package/feeds/packages/frp
-git clone -b master --depth 1 --single-branch https://github.com/kuoruan/luci-app-frpc package/new/luci-app-frpc
-git clone -b master --depth 1 --single-branch https://github.com/lwz322/luci-app-frps package/new/luci-app-frps
+#rm -rf ./feeds/luci/applications/luci-app-frps
+#rm -rf ./feeds/luci/applications/luci-app-frpc
+#rm -rf ./feeds/packages/net/frp
+#rm -rf ./package/feeds/packages/frp
+#git clone -b master --depth 1 --single-branch https://github.com/kuoruan/luci-app-frpc package/new/luci-app-frpc
+#git clone -b master --depth 1 --single-branch https://github.com/lwz322/luci-app-frps package/new/luci-app-frps
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/frp package/new/frp
 
 # FullCone
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/kernel/fullconenat package/network/fullconenat
-wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/immortalwrt/immortalwrt/openwrt-21.02/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
-pushd feeds/luci
-cat ../../../patches/fullconenat-luci.patch | git apply
-popd
-mkdir -p package/network/config/firewall/patches
-wget -P package/network/config/firewall/patches/ https://raw.githubusercontent.com/immortalwrt/immortalwrt/openwrt-21.02/package/network/config/firewall/patches/fullconenat.patch
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/kernel/fullconenat package/network/fullconenat
+#wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/immortalwrt/immortalwrt/openwrt-21.02/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
+#pushd feeds/luci
+#cat ../../../patches/fullconenat-luci.patch | git apply
+#popd
+#mkdir -p package/network/config/firewall/patches
+#wget -P package/network/config/firewall/patches/ https://raw.githubusercontent.com/immortalwrt/immortalwrt/openwrt-21.02/package/network/config/firewall/patches/fullconenat.patch
 
 # IPv6 helper
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ipv6-helper package/new/ipv6-helper
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ipv6-helper package/new/ipv6-helper
 
 # IPSEC
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ipsec-vpnd package/new/luci-app-ipsec-vpnd
@@ -62,7 +62,7 @@ sed -i 's|ifname|device|g' package/new/luci-app-ipsec-vpnd/root/etc/uci-defaults
 git clone -b master --depth 1 --single-branch https://github.com/destan19/OpenAppFilter package/new/OpenAppFilter
 
 # OpenClash
-git clone -b master --depth 1 --single-branch https://github.com/vernesong/OpenClash package/new/luci-app-openclash
+#git clone -b master --depth 1 --single-branch https://github.com/vernesong/OpenClash package/new/luci-app-openclash
 
 # PassWall
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/new/luci-app-passwall
@@ -98,21 +98,21 @@ svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/new/sh
 svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/new/shadowsocksr-libev
 
 # Traffic Usage Monitor
-git clone -b master --depth 1 --single-branch https://github.com/brvphoenix/wrtbwmon package/new/wrtbwmon
-git clone -b master --depth 1 --single-branch https://github.com/brvphoenix/luci-app-wrtbwmon package/new/luci-app-wrtbwmon
+#git clone -b master --depth 1 --single-branch https://github.com/brvphoenix/wrtbwmon package/new/wrtbwmon
+#git clone -b master --depth 1 --single-branch https://github.com/brvphoenix/luci-app-wrtbwmon package/new/luci-app-wrtbwmon
 
 # UPNP
 rm -rf ./feeds/packages/net/miniupnpd
 svn co https://github.com/openwrt/packages/trunk/net/miniupnpd feeds/packages/net/miniupnpd
 
 # upx & ucl
-svn co https://github.com/coolsnowwolf/lede/trunk/tools/ucl tools/ucl
-svn co https://github.com/coolsnowwolf/lede/trunk/tools/upx tools/upx
-sed -i '/builddir dependencies/i\tools-y += ucl upx' tools/Makefile
-sed -i '/builddir dependencies/a\$(curdir)/upx/compile := $(curdir)/ucl/compile' tools/Makefile
+#svn co https://github.com/coolsnowwolf/lede/trunk/tools/ucl tools/ucl
+#svn co https://github.com/coolsnowwolf/lede/trunk/tools/upx tools/upx
+#sed -i '/builddir dependencies/i\tools-y += ucl upx' tools/Makefile
+#sed -i '/builddir dependencies/a\$(curdir)/upx/compile := $(curdir)/ucl/compile' tools/Makefile
 
 # USB Printer
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-usb-printer package/new/luci-app-usb-printer
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-usb-printer package/new/luci-app-usb-printer
 
 # vlmcsd
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-vlmcsd feeds/luci/applications/luci-app-vlmcsd
